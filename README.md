@@ -1,146 +1,97 @@
-# MOANS
+# PyBullet PPO Navigation
 
-## Mapless autonomous navigation for indoor robots
+A self-contained PyBullet navigation environment trained with Proximal Policy Optimization (PPO). The project recreates a corridor-style robot navigation task with lidar observations, static and dynamic obstacles, collision detection, checkpointing, evaluation, and TensorBoard logging.
 
-<div align="center">
+## Features
 
-![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy-22314E?style=for-the-badge&logo=ros)
-![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/license-not%20specified-lightgrey?style=for-the-badge)
+- 36-beam lidar plus goal distance and heading observations
+- PPO actor-critic training with GAE
+- Static corridor obstacles and an optional moving obstacle
+- Real PyBullet contact-based collision detection
+- Automatic checkpoint resume
+- CUDA, Apple Silicon MPS, and CPU device selection
+- GUI, fast GUI, and headless training modes
+- TensorBoard-compatible training logs
 
-**A ROS 2 workspace for experimenting with perception, mapping, control, and learning-based navigation in dynamic indoor environments.**
+## Requirements
 
-</div>
+- Python 3.9 or newer
+- PyTorch
+- NumPy
+- PyBullet
 
----
+Install the Python dependencies in a virtual environment:
 
-## Why MOANS?
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install numpy torch pybullet
+```
 
-Most indoor navigation demos assume that a finished map already exists. MOANS is structured around the harder, more useful problem: a robot must build understanding while it moves through an unfamiliar space.
+For Apple Silicon, install the PyTorch build appropriate for your machine if the default package is not suitable.
 
-The repository brings together:
+## Run Training
 
-- ROS 2 launch files for simulation, visualization, robot spawning, and Cartographer.
-- A Python navigation package with configuration, logging, checkpoints, PPO, and training utilities.
-- Standalone C++ solutions for three algorithmic practice problems.
-- A small `control.py` utility for coordinating the local workflow.
+From the repository root:
 
-## Architecture at a glance
+```bash
+# Open the PyBullet GUI and run in real time
+python train_agent_pybullet.py
+
+# Open the GUI but run the simulation as fast as possible
+python train_agent_pybullet.py --fast
+
+# Run without a window; recommended for long training runs
+python train_agent_pybullet.py --headless
+```
+
+The trainer automatically uses CUDA when available, then Apple Silicon MPS, and finally CPU.
+
+## Configuration
+
+Edit `pybullet_config.py` to change PPO, reward, environment, obstacle, evaluation, or simulation settings. The training entry point assigns the included `robot.urdf` automatically. If you use another robot, update `build_config()` in `train_agent_pybullet.py` and set the wheel joint names, wheel geometry, and lidar offsets as needed.
+
+Useful environment settings include:
+
+- `enable_obstacles`: enable or disable the corridor obstacles
+- `dynamic_obstacle_enabled`: enable or disable the moving obstacle
+- `target_goal`: goal position in world coordinates
+- `max_steps_per_episode`: episode length limit
+- `workspace_dir`: location for models, logs, TensorBoard data, and saved configs
+
+## Output Files
+
+By default, generated training data is stored in `~/pybullet_nav/MODEL/`:
 
 ```text
-Sensors / simulation
-        |
-        v
-  Perception and mapping  --->  Robot pose
-        |                         |
-        +------> Navigation <-----+
-                    |
-                    v
-             Velocity commands
-
-Learning loop: observations -> PPO policy -> action -> environment -> reward
+MODEL/
+├── configs/       # Saved training configuration
+├── logs/          # Episode and evaluation logs
+├── models/        # PPO checkpoints
+└── tensorboard/   # TensorBoard event files
 ```
 
-The project is intentionally modular: simulation and ROS 2 launch concerns live in `src/my_project/launch`, while navigation and learning code live in `src/my_project/my_project`.
+These generated directories are intentionally not committed to the repository.
 
-## Repository map
+## TensorBoard
 
-```text
-.
-├── src/my_project/
-│   ├── launch/              # Gazebo, RViz, Cartographer, and spawn launch files
-│   ├── my_project/          # Navigation, PPO, logging, and checkpoint modules
-│   ├── test/                # Package quality checks
-│   ├── package.xml
-│   └── setup.py
-├── control.py               # Local workflow helper
-├── A_Games_on_the_Train.cpp
-├── B_Tatar_TV_Show.cpp
-├── C_Omsk_Programmers.cpp
-└── README.md
-```
-
-Generated ROS 2 directories (`src/build`, `src/install`, and `src/log`) are included in the upstream snapshot for reproducibility. For new development, rebuild them locally instead of committing fresh generated output.
-
-## Prerequisites
-
-- Ubuntu 24.04
-- ROS 2 Jazzy
-- Python 3.10 or newer
-- `colcon`
-- Gazebo and RViz 2, when running the simulation launch files
-
-Source ROS 2 before building:
+Launch TensorBoard while training or after a run:
 
 ```bash
-source /opt/ros/jazzy/setup.bash
+tensorboard --logdir ~/pybullet_nav/MODEL/tensorboard
 ```
 
-## Build
+## Project Structure
 
-```bash
-cd MOANS
-colcon build --symlink-install --base-paths src/my_project
-source install/setup.bash
-```
+- `train_agent_pybullet.py` - PPO training and evaluation entry point
+- `pybullet_nav_env.py` - PyBullet world, observations, actions, rewards, and resets
+- `pybullet_config.py` - Environment and PPO configuration
+- `ppo_model.py` - Actor-critic neural network
+- `checkpoint_manager.py` - Checkpoint saving and resume support
+- `logger.py` - Running normalization and training logs
+- `robot.urdf` - Example four-wheel robot model
 
-If you are working from the repository as a ROS workspace, the package can also be built with the normal workspace command:
+## Notes
 
-```bash
-colcon build --symlink-install
-source install/setup.bash
-```
-
-## Run
-
-Launch the available workflows through the package:
-
-```bash
-ros2 launch my_project gazebo.launch.py
-ros2 launch my_project spawn_robot.launch.py
-ros2 launch my_project display.launch.py
-ros2 launch my_project cartographer.launch.py
-```
-
-The learning entry point is available after the package is built:
-
-```bash
-ros2 run my_project train_agent
-```
-
-For a quick look at the Python modules without launching ROS:
-
-```bash
-python3 -m py_compile src/my_project/my_project/*.py
-```
-
-## Development notes
-
-The package contains the following core pieces:
-
-| Area | Modules |
-| --- | --- |
-| Training | `train_agent.py`, `ppo_model.py` |
-| Navigation | `drl_navigator.py`, `config.py` |
-| Experiment support | `checkpoint_manager.py`, `logger.py` |
-| ROS 2 integration | `launch/*.launch.py`, `setup.py`, `package.xml` |
-
-The C++ files at the repository root are independent console programs. Compile one with:
-
-```bash
-clang++ -std=c++17 -O2 A_Games_on_the_Train.cpp -o games_on_the_train
-./games_on_the_train
-```
-
-Replace the source and output names to run either of the other two solutions.
-
-## Current scope
-
-MOANS is an active research and learning workspace rather than a packaged robot product. Hardware-specific drivers, benchmark results, and a project license are not defined in the current source tree. Contributions that make experiments repeatable, improve simulation fidelity, or add measurable navigation evaluations are especially useful.
-
-## Author
-
-**Devendra Kumar**
-
-Repository: [github.com/Dk8494/MOANS](https://github.com/Dk8494/MOANS)
+The included environment is synchronous: each call to `reset()` fully resets the robot, velocities, obstacle timer, and waypoint state. Training can resume from the latest compatible checkpoint in the configured models directory.

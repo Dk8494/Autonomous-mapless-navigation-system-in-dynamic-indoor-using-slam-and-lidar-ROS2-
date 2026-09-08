@@ -1,3 +1,0 @@
-[console_scripts]
-drl_navigator = my_project.drl_navigator:main
-train_agent = my_project.train_agent:main
