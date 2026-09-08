@@ -1,0 +1,65 @@
+[0.360s] Invoking command in '/home/invictron/MOANS/src/my_project': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/invictron/MOANS/src/build/my_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_project build --build-base /home/invictron/MOANS/src/build/my_project/build install --record /home/invictron/MOANS/src/build/my_project/install.log --single-version-externally-managed install_data
+[0.481s] running egg_info
+[0.481s] creating ../build/my_project/my_project.egg-info
+[0.489s] writing ../build/my_project/my_project.egg-info/PKG-INFO
+[0.489s] writing dependency_links to ../build/my_project/my_project.egg-info/dependency_links.txt
+[0.489s] writing entry points to ../build/my_project/my_project.egg-info/entry_points.txt
+[0.489s] writing requirements to ../build/my_project/my_project.egg-info/requires.txt
+[0.489s] writing top-level names to ../build/my_project/my_project.egg-info/top_level.txt
+[0.489s] writing manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+[0.507s] reading manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+[0.507s] writing manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+[0.507s] running build
+[0.507s] running build_py
+[0.507s] creating /home/invictron/MOANS/src/build/my_project/build
+[0.507s] creating /home/invictron/MOANS/src/build/my_project/build/lib
+[0.507s] creating /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/__init__.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/config.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/ppo_model.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/train_agent.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/logger.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/drl_navigator.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] copying my_project/checkpoint_manager.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+[0.507s] running install
+[0.510s] running install_lib
+[0.519s] creating /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/__init__.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/config.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/ppo_model.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/train_agent.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/logger.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/drl_navigator.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/checkpoint_manager.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+[0.519s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/__init__.py to __init__.cpython-312.pyc
+[0.520s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/config.py to config.cpython-312.pyc
+[0.520s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/ppo_model.py to ppo_model.cpython-312.pyc
+[0.520s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/train_agent.py to train_agent.cpython-312.pyc
+[0.523s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/logger.py to logger.cpython-312.pyc
+[0.524s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/drl_navigator.py to drl_navigator.cpython-312.pyc
+[0.524s] byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/checkpoint_manager.py to checkpoint_manager.cpython-312.pyc
+[0.525s] running install_data
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/ament_index
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index/packages
+[0.525s] copying resource/my_project -> /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index/packages
+[0.525s] copying package.xml -> /home/invictron/MOANS/src/install/my_project/share/my_project
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+[0.525s] copying launch/spawn_robot.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+[0.525s] copying launch/gazebo.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+[0.525s] copying launch/display.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+[0.525s] copying launch/cartographer.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/my_project/urdf
+[0.525s] copying urdf/robot.xacro -> /home/invictron/MOANS/src/install/my_project/share/my_project/urdf
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+[0.525s] copying worlds/empty.sdf -> /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+[0.525s] copying worlds/dynamic_corridor.world -> /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+[0.525s] creating /home/invictron/MOANS/src/install/my_project/share/my_project/config
+[0.525s] copying config/cartographer.lua -> /home/invictron/MOANS/src/install/my_project/share/my_project/config
+[0.525s] running install_egg_info
+[0.535s] Copying ../build/my_project/my_project.egg-info to /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project-0.0.0-py3.12.egg-info
+[0.535s] running install_scripts
+[0.593s] Installing drl_navigator script to /home/invictron/MOANS/src/install/my_project/lib/my_project
+[0.593s] Installing train_agent script to /home/invictron/MOANS/src/install/my_project/lib/my_project
+[0.593s] writing list of installed files to '/home/invictron/MOANS/src/build/my_project/install.log'
+[0.606s] Invoked command in '/home/invictron/MOANS/src/my_project' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/invictron/MOANS/src/build/my_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_project build --build-base /home/invictron/MOANS/src/build/my_project/build install --record /home/invictron/MOANS/src/build/my_project/install.log --single-version-externally-managed install_data

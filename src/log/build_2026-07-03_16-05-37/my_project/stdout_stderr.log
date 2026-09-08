@@ -1,0 +1,63 @@
+running egg_info
+creating ../build/my_project/my_project.egg-info
+writing ../build/my_project/my_project.egg-info/PKG-INFO
+writing dependency_links to ../build/my_project/my_project.egg-info/dependency_links.txt
+writing entry points to ../build/my_project/my_project.egg-info/entry_points.txt
+writing requirements to ../build/my_project/my_project.egg-info/requires.txt
+writing top-level names to ../build/my_project/my_project.egg-info/top_level.txt
+writing manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+reading manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+writing manifest file '../build/my_project/my_project.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/invictron/MOANS/src/build/my_project/build
+creating /home/invictron/MOANS/src/build/my_project/build/lib
+creating /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/__init__.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/config.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/ppo_model.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/train_agent.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/logger.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/drl_navigator.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+copying my_project/checkpoint_manager.py -> /home/invictron/MOANS/src/build/my_project/build/lib/my_project
+running install
+running install_lib
+creating /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/__init__.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/config.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/ppo_model.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/train_agent.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/logger.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/drl_navigator.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+copying /home/invictron/MOANS/src/build/my_project/build/lib/my_project/checkpoint_manager.py -> /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/config.py to config.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/ppo_model.py to ppo_model.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/train_agent.py to train_agent.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/logger.py to logger.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/drl_navigator.py to drl_navigator.cpython-312.pyc
+byte-compiling /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project/checkpoint_manager.py to checkpoint_manager.cpython-312.pyc
+running install_data
+creating /home/invictron/MOANS/src/install/my_project/share/ament_index
+creating /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index
+creating /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index/packages
+copying resource/my_project -> /home/invictron/MOANS/src/install/my_project/share/ament_index/resource_index/packages
+copying package.xml -> /home/invictron/MOANS/src/install/my_project/share/my_project
+creating /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+copying launch/spawn_robot.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+copying launch/gazebo.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+copying launch/display.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+copying launch/cartographer.launch.py -> /home/invictron/MOANS/src/install/my_project/share/my_project/launch
+creating /home/invictron/MOANS/src/install/my_project/share/my_project/urdf
+copying urdf/robot.xacro -> /home/invictron/MOANS/src/install/my_project/share/my_project/urdf
+creating /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+copying worlds/empty.sdf -> /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+copying worlds/dynamic_corridor.world -> /home/invictron/MOANS/src/install/my_project/share/my_project/worlds
+creating /home/invictron/MOANS/src/install/my_project/share/my_project/config
+copying config/cartographer.lua -> /home/invictron/MOANS/src/install/my_project/share/my_project/config
+running install_egg_info
+Copying ../build/my_project/my_project.egg-info to /home/invictron/MOANS/src/install/my_project/lib/python3.12/site-packages/my_project-0.0.0-py3.12.egg-info
+running install_scripts
+Installing drl_navigator script to /home/invictron/MOANS/src/install/my_project/lib/my_project
+Installing train_agent script to /home/invictron/MOANS/src/install/my_project/lib/my_project
+writing list of installed files to '/home/invictron/MOANS/src/build/my_project/install.log'
